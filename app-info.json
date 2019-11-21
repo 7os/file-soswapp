@@ -1,0 +1,14 @@
+{
+  "name" : "7os/file-soswapp",
+  "basepath" : "/file",
+  "description" : "File reader for tymfrontiers-cdn/php-file",
+  "homepage" : "https://github.com/7os/file-soswapp",
+  "support" : {
+    "email" : "dev@tymfrontiers.com",
+    "website" : "https://tymfrontiers.com",
+    "kollabo" : "@tymfrontiers",
+    "twitter" : "@tymfrontiers",
+    "facebook" : "@tymfrontiers",
+    "istagram" : "@tymfrontiers"
+  }
+}
