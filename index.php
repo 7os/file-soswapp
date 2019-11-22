@@ -27,7 +27,7 @@ $ext = \pathinfo($file->fullPath(),PATHINFO_EXTENSION);
 // var_dump($file);
 if( !\file_exists($file->fullPath()) ) Header::notFound(false);
 \header("Content-Type: {$file->type()}");
-\header("Content-Length: " . $file->size());
+\header("Content-Length: " . \filesize($file->fullPath()));
 if( !empty($_GET['dl']) &&  (bool)$_GET['dl'] ){
   \header('Content-Disposition: attachment;filename="'.$file->nice_name.".".$ext.'"');
 }
