@@ -9,7 +9,8 @@ $params = $gen->requestParam(
   [
     "fname" =>["fname","text",3,256],
     "fid" =>["fid","int"],
-    "dl" =>["dl","boolean"]
+    "dl" =>["dl","boolean"],
+    "getsize" =>["getsize","text",3,0]
   ],
   "get",[]);
 if( empty($params['fname']) && empty($params['fid']) ){
@@ -22,6 +23,23 @@ $query .= " LIMIT 1";
 $file = File::findBySql($query);
 if( !$file ) Header::notFound();
 $file = $file[0];
+if (!empty($params['getsize']) && $file->groupName() == 'image') {
+  @ list($width, $height) = \explode('x',\strtolower($params['getsize']));
+  $width = (int)$width;
+  $width = $width > 49 ? $width : false;
+  $height = (int)$height;
+  $height = $height > 49 ? $height : false;
+  if ($width) {
+    $rez = new \Gumlet\ImageResize($file->fullPath());
+    if ($height) {
+      $rez->resize($width,$height);
+    } else {
+      $rez->resizeToWidth($width);
+    }
+    $rez->output();
+    exit;
+  }
+}
 // record download
 $ext = \pathinfo($file->fullPath(),PATHINFO_EXTENSION);
 // var_dump($file);
