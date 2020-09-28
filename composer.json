@@ -1,8 +1,8 @@
 {
-    "name": "7os/files-soswapp",
+    "name": "7os/file-soswapp",
     "description": "File reader for tymfrontiers-cdn/php-file",
     "keywords": ["php", "soswapp","seven","os", "file"],
-    "homepage": "https://github.com/7os/files-soswapp",
+    "homepage": "https://github.com/7os/file-soswapp",
     "type": "library",
     "license": "MIT",
     "authors": [
